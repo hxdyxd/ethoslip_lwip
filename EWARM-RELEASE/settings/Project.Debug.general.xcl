@@ -2,13 +2,13 @@
 
 "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armjlink2.dll" 
 
-"L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\Debug\Exe\application.axf" 
+"L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\Debug\Exe\application.axf" 
 
 --plugin "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm\bin\armbat.dll" 
 
---macro "L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\..\..\..\component\soc\realtek\8195a\misc\iar_utility\common\preload.mac" 
+--macro "L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\..\..\..\component\soc\realtek\8195a\misc\iar_utility\common\preload.mac" 
 
---flash_loader "L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\tmp.board" 
+--flash_loader "L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\tmp.board" 
 
 
 

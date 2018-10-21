@@ -406,6 +406,8 @@
                     <state>$PROJ_DIR$\..\..\..\component\common\network\coap\include</state>
                     <state>$PROJ_DIR$\..\mad</state>
                     <state>$PROJ_DIR$\..\I2C</state>
+                    <state>$PROJ_DIR$\..\mqtt</state>
+                    <state>$PROJ_DIR$\..\..\..\component\common\application\airkiss\2.0.0-23930\src</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -3285,6 +3287,7 @@
         <file>
             <name>$PROJ_DIR$\..\..\..\component\soc\realtek\8195a\misc\bsp\lib\common\IAR\lib_mdns.a</name>
             <excluded>
+                <configuration>Debug</configuration>
                 <configuration>INIC-SDIO</configuration>
             </excluded>
         </file>
@@ -3296,6 +3299,9 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\..\component\soc\realtek\8195a\misc\bsp\lib\common\IAR\lib_websocket.a</name>
+            <excluded>
+                <configuration>Debug</configuration>
+            </excluded>
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\..\component\soc\realtek\8195a\misc\bsp\lib\common\IAR\lib_wlan.a</name>
@@ -3371,6 +3377,9 @@
             </excluded>
             <group>
                 <name>mqtt</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\component\common\application\mqtt\MQTTClient\MQTTClient.c</name>
                 </file>
@@ -3637,6 +3646,7 @@
         <group>
             <name>mdns</name>
             <excluded>
+                <configuration>Debug</configuration>
                 <configuration>INIC-SDIO</configuration>
             </excluded>
             <file>
@@ -3648,7 +3658,6 @@
             <group>
                 <name>mbedtls</name>
                 <excluded>
-                    <configuration>Debug</configuration>
                     <configuration>UVC</configuration>
                 </excluded>
                 <file>
@@ -3657,6 +3666,9 @@
             </group>
             <group>
                 <name>polarssl</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
                 <file>
                     <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\bignum.c</name>
                 </file>
@@ -3664,6 +3676,9 @@
         </group>
         <group>
             <name>wsclient</name>
+            <excluded>
+                <configuration>Debug</configuration>
+            </excluded>
             <file>
                 <name>$PROJ_DIR$\..\..\..\component\common\network\websocket\wsclient_tls.c</name>
             </file>
@@ -3904,7 +3919,6 @@
             <file>
                 <name>$PROJ_DIR$\..\..\..\component\common\drivers\wlan\realtek\src\core\option\rtw_opt_skbuf.c</name>
                 <excluded>
-                    <configuration>Debug</configuration>
                     <configuration>INIC-SDIO</configuration>
                 </excluded>
             </file>
@@ -3915,441 +3929,11 @@
         <excluded>
             <configuration>INIC-SDIO</configuration>
         </excluded>
-        <group>
-            <name>ssl</name>
-            <group>
-                <name>mbedtls</name>
-                <excluded>
-                    <configuration>Debug</configuration>
-                    <configuration>UVC</configuration>
-                </excluded>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\aes.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\aesni.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\arc4.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\asn1parse.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\asn1write.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\base64.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\blowfish.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\camellia.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ccm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\certs.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\cipher.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\cipher_wrap.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\cmac.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ctr_drbg.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\debug.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\des.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\dhm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecdh.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecdsa.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecjpake.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecp.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecp_curves.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\entropy.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\entropy_poll.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\error.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\gcm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\havege.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\hmac_drbg.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md2.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md4.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md5.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md_wrap.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\memory_buffer_alloc.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\net_sockets.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\oid.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\padlock.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pem.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pk.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pk_wrap.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkcs11.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkcs12.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkcs5.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkparse.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkwrite.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\platform.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ripemd160.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\rsa.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\sha1.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\sha256.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\sha512.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_cache.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_ciphersuites.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_cli.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_cookie.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_srv.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_ticket.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_tls.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\threading.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\timing.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\version.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\version_features.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_create.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_crl.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_crt.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_csr.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509write_crt.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509write_csr.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\xtea.c</name>
-                </file>
-            </group>
-            <group>
-                <name>polarssl</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\aes.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\aesni.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\arc4.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\asn1parse.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\asn1write.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\base64.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\blowfish.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\camellia.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ccm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\certs.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\cipher.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\cipher_wrap.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ctr_drbg.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\debug.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\des.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\dhm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecdh.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecdsa.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecp.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecp_curves.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\entropy.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\entropy_poll.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\error.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\gcm.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\havege.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\hmac_drbg.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md2.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md4.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md5.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md_wrap.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\memory_buffer_alloc.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\net.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\oid.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\padlock.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pbkdf2.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pem.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pk.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pk_wrap.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkcs11.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkcs12.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkcs5.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkparse.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkwrite.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\platform.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ripemd160.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\rsa.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\sha1.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\sha256.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\sha512.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_cache.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_ciphersuites.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_cli.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_srv.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_tls.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\threading.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\timing.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\version.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\version_features.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_create.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_crl.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_crt.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_csr.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509write_crt.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509write_csr.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\xtea.c</name>
-                </file>
-            </group>
-            <group>
-                <name>ssl_ram_map</name>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\ssl_ram_map\rom\rom_ssl_ram_map.c</name>
-                </file>
-                <file>
-                    <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\ssl_ram_map\ssl_ram_map.c</name>
-                </file>
-            </group>
-        </group>
         <file>
             <name>$PROJ_DIR$\..\..\..\component\common\api\platform\stdlib_patch.c</name>
+            <excluded>
+                <configuration>Debug</configuration>
+            </excluded>
         </file>
         <configuration>
             <name>Debug</name>
@@ -5245,27 +4829,453 @@
         </configuration>
     </group>
     <group>
-        <name>user</name>
-        <file>
-            <name>$PROJ_DIR$\..\src\adpcm.c</name>
+        <name>ssl</name>
+        <group>
+            <name>mbedtls</name>
+            <excluded>
+                <configuration>UVC</configuration>
+            </excluded>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\aes.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\aesni.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\arc4.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\asn1parse.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\asn1write.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\base64.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\blowfish.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\camellia.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ccm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\certs.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\cipher.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\cipher_wrap.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\cmac.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ctr_drbg.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\debug.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\des.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\dhm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecdh.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecdsa.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecjpake.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecp.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ecp_curves.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\entropy.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\entropy_poll.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\error.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\gcm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\havege.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\hmac_drbg.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md2.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md4.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md5.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\md_wrap.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\memory_buffer_alloc.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\net_sockets.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\oid.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\padlock.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pem.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pk.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pk_wrap.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkcs11.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkcs12.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkcs5.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkparse.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\pkwrite.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\platform.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ripemd160.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\rsa.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\sha1.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\sha256.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\sha512.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_cache.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_ciphersuites.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_cli.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_cookie.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_srv.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_ticket.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\ssl_tls.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\threading.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\timing.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\version.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\version_features.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_create.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_crl.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_crt.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509_csr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509write_crt.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\x509write_csr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\mbedtls-2.4.0\library\xtea.c</name>
+            </file>
+        </group>
+        <group>
+            <name>polarssl</name>
             <excluded>
                 <configuration>Debug</configuration>
             </excluded>
-        </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\aes.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\aesni.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\arc4.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\asn1parse.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\asn1write.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\base64.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\blowfish.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\camellia.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ccm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\certs.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\cipher.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\cipher_wrap.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ctr_drbg.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\debug.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\des.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\dhm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecdh.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecdsa.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecp.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ecp_curves.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\entropy.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\entropy_poll.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\error.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\gcm.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\havege.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\hmac_drbg.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md2.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md4.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md5.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\md_wrap.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\memory_buffer_alloc.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\net.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\oid.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\padlock.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pbkdf2.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pem.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pk.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pk_wrap.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkcs11.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkcs12.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkcs5.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkparse.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\pkwrite.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\platform.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ripemd160.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\rsa.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\sha1.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\sha256.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\sha512.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_cache.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_ciphersuites.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_cli.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_srv.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\ssl_tls.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\threading.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\timing.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\version.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\version_features.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_create.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_crl.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_crt.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509_csr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509write_crt.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\x509write_csr.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\polarssl-1.3.8\library\xtea.c</name>
+            </file>
+        </group>
+        <group>
+            <name>ssl_ram_map</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\ssl_ram_map\rom\rom_ssl_ram_map.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\network\ssl\ssl_ram_map\ssl_ram_map.c</name>
+            </file>
+        </group>
+    </group>
+    <group>
+        <name>user</name>
+        <group>
+            <name>airkiss</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\application\airkiss\2.0.0-23930\src\airkiss.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\..\component\common\application\airkiss\2.0.0-23930\lib\libairkiss.a</name>
+            </file>
+        </group>
         <file>
             <name>$PROJ_DIR$\..\inc\app_debug.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\src\au_fifo.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\inc\au_fifo.h</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\src\http_api.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\src\i2s_h.c</name>
         </file>
         <file>
             <name>$PROJ_DIR$\..\src\main.c</name>
@@ -5274,21 +5284,22 @@
             <name>$PROJ_DIR$\..\inc\platform_autoconf.h</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\src\player.c</name>
+            <name>$PROJ_DIR$\..\src\slip.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\src\task_stats_timer.c</name>
+            <name>$PROJ_DIR$\..\src\slip2ip_task.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\src\vs1003.c</name>
+            <name>$PROJ_DIR$\..\src\tun.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\src\vs1003_spi.c</name>
+            <name>$PROJ_DIR$\..\src\uart2.c</name>
         </file>
     </group>
     <group>
         <name>utilities</name>
         <excluded>
+            <configuration>Debug</configuration>
             <configuration>INIC-SDIO</configuration>
         </excluded>
         <group>
@@ -5331,6 +5342,9 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\..\component\common\example\mqtt\example_mqtt.c</name>
+                <excluded>
+                    <configuration>Debug</configuration>
+                </excluded>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\..\component\common\example\nonblock_connect\example_nonblock_connect.c</name>
@@ -5382,51 +5396,6 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\..\component\common\example\xml\example_xml.c</name>
-            </file>
-        </group>
-        <group>
-            <name>I2C</name>
-            <file>
-                <name>$PROJ_DIR$\..\I2C\K24cxx.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\I2C\K24cxx.h</name>
-            </file>
-        </group>
-        <group>
-            <name>libmad</name>
-            <file>
-                <name>$PROJ_DIR$\..\mad\bit.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\decoder.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\fixed.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\frame.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\huffman.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\layer12.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\layer3.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\mad_version.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\stream.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\synth.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\mad\timer.c</name>
             </file>
         </group>
         <file>

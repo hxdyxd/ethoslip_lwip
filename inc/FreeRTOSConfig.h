@@ -115,10 +115,10 @@ extern volatile uint32_t ulHighFrequencyTimerTicks2;
 #define configCHECK_FOR_STACK_OVERFLOW	2
 #define configUSE_RECURSIVE_MUTEXES		1
 #define configQUEUE_REGISTRY_SIZE		0
-#define configGENERATE_RUN_TIME_STATS	1         //vTaskGetRunTimeStats
+#define configGENERATE_RUN_TIME_STATS	0         //vTaskGetRunTimeStats
 #if configGENERATE_RUN_TIME_STATS
-#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() (ulHighFrequencyTimerTicks2 = 0U)
-#define portGET_RUN_TIME_COUNTER_VALUE() ulHighFrequencyTimerTicks2
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() //(ulHighFrequencyTimerTicks2 = 0U)
+#define portGET_RUN_TIME_COUNTER_VALUE() //ulHighFrequencyTimerTicks2
 #undef	configUSE_TRACE_FACILITY
 #define configUSE_TRACE_FACILITY			1
 #define portCONFIGURE_STATS_PEROID_VALUE	1000 //unit Ticks

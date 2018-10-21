@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\settings\Project.Debug.general.xcl" --backend -f "L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\settings\Project.Debug.driver.xcl" 
+"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\settings\Project.Debug.general.xcl" --backend -f "L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\settings\Project.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\settings\Project.Debug.general.xcl" "--debug_file=%~1" --backend -f "L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\mp3_player\EWARM-RELEASE\settings\Project.Debug.driver.xcl" 
+"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\settings\Project.Debug.general.xcl" "--debug_file=%~1" --backend -f "L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\settings\Project.Debug.driver.xcl" 
 
 @echo off 
 :end

@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <PlDriver>
-        <MemConfigValue>L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\realtek_ameba1_va0_example\EWARM-RELEASE\..\..\..\component\soc\realtek\8195a\misc\iar_utility\common\8195a.ddf</MemConfigValue>
+        <MemConfigValue>L:\rtl8710\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\tun-sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\..\..\..\component\soc\realtek\8195a\misc\iar_utility\common\8195a.ddf</MemConfigValue>
     </PlDriver>
     <Jet>
         <DisableInterrupts>0</DisableInterrupts>
@@ -31,7 +31,7 @@
         <StopOnThrow>_ 0</StopOnThrow>
     </Exceptions>
     <DebugChecksum>
-        <Checksum>830632146</Checksum>
+        <Checksum>425564152</Checksum>
     </DebugChecksum>
     <CodeCoverage>
         <Enabled>_ 0</Enabled>
@@ -67,6 +67,9 @@
         <CStepIntDis>_ 0</CStepIntDis>
         <LeaveTargetRunning>_ 1</LeaveTargetRunning>
     </StLinkDriver>
+    <RecentFlashDownload>
+        <Path>L:\rtl8710\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\sdk-ameba-v4.0b_without_NDA_GCC_V1.0.0\project\tun\EWARM-RELEASE\Debug\Exe\application.sim</Path>
+    </RecentFlashDownload>
     <DriverProfiling>
         <Enabled>0</Enabled>
         <Mode>1</Mode>
@@ -138,6 +141,12 @@
         <ShowTimeSum>1</ShowTimeSum>
         <SumSortOrder>0</SumSortOrder>
     </EventLog>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Count>0</Count>
+    </Breakpoints2>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -147,17 +156,6 @@
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
     </TermIOLog>
-    <PowerProbe>
-        <Frequency>10000</Frequency>
-        <Probe0>I0</Probe0>
-        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
-    </PowerProbe>
-    <DisassembleMode>
-        <mode>0</mode>
-    </DisassembleMode>
-    <Breakpoints2>
-        <Count>0</Count>
-    </Breakpoints2>
     <Aliases>
         <A0>_ "D:\IOT\branches\release\general\v04\v4.0b.mp\component\common\drivers\wlan\realtek\src\hal\rtl8195a\src\lx_bus\lxbus_ops.c" ""</A0>
         <A1>_ "D:\IOT\branches\release\general\v04\v4.0b.mp\component\common\drivers\wlan\realtek\src\osdep\freertos\rtk_wlan_if.c" ""</A1>
@@ -165,4 +163,9 @@
         <Count>3</Count>
         <SuppressDialog>1</SuppressDialog>
     </Aliases>
+    <PowerProbe>
+        <Frequency>10000</Frequency>
+        <Probe0>I0</Probe0>
+        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
+    </PowerProbe>
 </settings>
