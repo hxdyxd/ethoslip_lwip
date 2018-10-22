@@ -1,0 +1,41 @@
+#ifndef __WLAN_API_H__
+#define __WLAN_API_H__
+
+#include <stdint.h>
+
+#define WLAN_API_TYPE_CONNECT       0x01
+#define WLAN_API_TYPE_CONNECT_RET   (WLAN_API_TYPE_CONNECT | 0x80)
+
+#define WLAN_API_SSID_MAX_LEN        (33)
+#define WLAN_API_PASSWORD_MAX_LEN    (65)
+
+#if defined(__IAR_SYSTEMS_ICC__)|| defined (__GNUC__)
+#pragma pack(1)
+#endif
+
+struct wlan_api_default_t {
+  	unsigned char dst[6];
+	unsigned char src[6];
+	uint16_t ethtype;
+  	unsigned char type;
+	unsigned char buf[1];
+};
+
+struct wlan_api_wifi_connect_t {
+  	unsigned char dst[6];
+	unsigned char src[6];
+	uint16_t ethtype;
+  	unsigned char type;
+	unsigned char ssid_len;
+	unsigned char ssid[WLAN_API_SSID_MAX_LEN];
+	unsigned char password_len;
+	unsigned char password[WLAN_API_PASSWORD_MAX_LEN];
+};
+
+#if defined(__IAR_SYSTEMS_ICC__)|| defined (__GNUC__)
+#pragma pack()
+#endif
+
+int wlan_api_connect(void *ssid, void *passwd, uint8_t ssid_len, uint8_t passwd_len);
+
+#endif
