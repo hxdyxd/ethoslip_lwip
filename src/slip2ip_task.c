@@ -7,6 +7,8 @@
 #include "app_debug.h"
 #include "tun.h"
 
+#include "wlan_api.h"
+
 #define CHECK_SUM_ON   1
 
 #define TUN_SERVER "67.209.189.217"
@@ -62,7 +64,6 @@ void slip2ip_task_proc(void *par)
 
 	return;*/
 	
-	
 	key_init(key);
 	
 	udp_sock = udp_new();
@@ -89,6 +90,12 @@ void slip2ip_task_proc(void *par)
 			continue;
 		}
 #endif
+		
+		if(total_len > 14 && slip_out_buffer[12] == 0xff
+		   && slip_out_buffer[13] == 0xff) {
+		  	wlan_api_pack_proc(slip_out_buffer, total_len);
+			continue;
+		}
 		
 		key_xor(slip_out_buffer, total_len, key);
 		

@@ -5295,6 +5295,9 @@
         <file>
             <name>$PROJ_DIR$\..\src\uart2.c</name>
         </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\wlan_api.c</name>
+        </file>
     </group>
     <group>
         <name>utilities</name>

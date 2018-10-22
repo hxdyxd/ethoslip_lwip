@@ -45,7 +45,7 @@ char soft_timer_delete(int id)
 	}
 }
 
-/* 定时器处理 */
+/* 定时器处理  */
 void soft_timer_proc(void)
 {
 	uint8_t i;
