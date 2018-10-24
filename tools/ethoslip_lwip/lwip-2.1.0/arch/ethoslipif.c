@@ -2,7 +2,8 @@
 
 
 static unsigned char lwip_out_buffer[BUF_SIZE];
-unsigned char ethoslipif_mac[ETH_HWADDR_LEN] = {0x8e, 0x05, 0xcf, 0x10, 0x23, 0xce};
+//unsigned char ethoslipif_mac[ETH_HWADDR_LEN] = {0x8e, 0x05, 0xcf, 0x10, 0x23, 0xce};
+unsigned char ethoslipif_mac[ETH_HWADDR_LEN] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 
 static err_t ethoslipif_low_level_output(struct netif *netif, struct pbuf *p);

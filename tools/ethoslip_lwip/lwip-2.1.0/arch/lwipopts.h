@@ -36,6 +36,7 @@
 #include <string.h>
 
 #define LWIP_DEBUG  1
+#define ETHARP_DEBUG                    LWIP_DBG_OFF
 
 #define NO_SYS_NO_TIMERS                0
 #define LWIP_TESTMODE                   1

@@ -4,7 +4,7 @@
  Author      : hxdyxd
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : ethoslip_main
  ============================================================================
  */
 
@@ -15,7 +15,6 @@
 #include "ethoslipif.h"
 #include "app_debug.h"
 #include "lwip/timeouts.h"
-#include "lwip/inet.h"
 #include "soft_timer.h"
 #include <pthread.h>
 #include "wlan_api.h"
@@ -38,8 +37,8 @@ int slip_out_task_start(SqQueue *Q);
 int slip_out_task_stop(void);
 void *slip_out_task_proc(void *par);
 
-static void user_init(void);
-static void user_loop(void);
+extern void user_init(void);
+extern void user_loop(void);
 
 int main(int argc, char *argv[]) {
 
@@ -63,8 +62,6 @@ int main(int argc, char *argv[]) {
 	netif.ip6_autoconfig_enabled = 1;
 	netif_set_default(&netif);  //set default netif
 	netif_set_up(&netif);
-	dhcp_start(&netif );
-//	httpd_init();
 
 	netif_set_link_up(&netif);
 
@@ -80,6 +77,13 @@ int main(int argc, char *argv[]) {
 		struct pbuf* p = queue_try_get(&Q);
 		unlock_interrupts();
 		if(p != NULL) {
+			//api frame
+			if(wlan_api_rx_proc(p->payload, p->len) == 0) {
+				pbuf_free(p);
+				APP_DEBUG("receive wlan api frame\n");
+				continue;
+			}
+			//data frame
 			LINK_STATS_INC(link.recv);
 			if(netif.input(p, &netif) != ERR_OK) {
 				pbuf_free(p);
@@ -104,10 +108,10 @@ void *slip_out_task_proc(void *par)
 		int total_len = recv_packet(slip_out_buffer, BUF_SIZE);
 
 #if CHECK_SUM_ON
-//		int temp_len = total_len;
+		int temp_len = total_len;
 		total_len = if_api_check(slip_out_buffer, total_len);
 		if(total_len < 0) {
-//			APP_DEBUG("lost %d bytes\n", temp_len);
+			APP_DEBUG("lost %d bytes\n", temp_len);
 			continue;
 		}
 #endif
@@ -121,7 +125,6 @@ void *slip_out_task_proc(void *par)
 		printf("\n");*/
 #endif
 
-		//write(*tun_fd, slip_out_buffer, total_len);
 		struct pbuf* p = pbuf_alloc(PBUF_RAW, total_len, PBUF_POOL);
 		if(p != NULL) {
 			/* Copy ethernet frame into pbuf */
@@ -159,109 +162,3 @@ int slip_out_task_stop(void)
     }
     return 0;
 }
-
-
-#define TEST_SERVER  "10.10.0.53"
-#define SERVER_PORT   8080
-
-static unsigned char udp_out_buffer[BUF_SIZE];
-struct udp_pcb *udp_sock = NULL;
-
-void queue_debug_proc(void)
-{
-	char *str = "hello world!\n";
-	lock_interrupts();
-	int queue_len = Q_Length(Q);
-	unlock_interrupts();
-
-	APP_DEBUG("queue length = %d\n", queue_len);
-
-	struct pbuf *p = NULL;
-	 p = pbuf_alloc(PBUF_TRANSPORT, strlen(str), PBUF_POOL);
-	if (p == NULL) {
-		printf("Cannot allocate pbuf to receive packet\n");
-		return;
-	}
-
-	err_t err = pbuf_take(p, str, strlen(str) );
-	if(err != ERR_OK) {
-	  	printf("Cannot take pbuf\n");
-		pbuf_free(p);
-		return;
-	}
-
-	udp_send(udp_sock, p);
-	pbuf_free(p);
-}
-
-void udp_data_input_cb(void *arg, struct udp_pcb *upcb, struct pbuf *p,
-				  const ip_addr_t *addr,  u16_t port)
-{
-
-	int total_len = p->tot_len;
-	pbuf_copy_partial(p, udp_out_buffer, total_len, 0);
-
-	for(int i=0;i<total_len;i++)
-		printf("%02x ", udp_out_buffer[i]);
-	printf("\n");
-}
-
-static void user_init(void)
-{
-	//todo ...
-	char *ssid_2 = "101";
-	char *passwd_2 = "198612888";
-	wlan_api_connect(ssid_2, passwd_2, strlen(ssid_2), strlen(passwd_2));
-
-	soft_timer_create(0, 1, 1, queue_debug_proc, 2000);
-
-	udp_sock = udp_new();
-	if(udp_sock == NULL) {
-	  	APP_ERROR("Failed to new udp pcb\n");
-	}
-
-	if(ERR_OK != udp_bind(udp_sock, IP_ADDR_ANY, SERVER_PORT) ) {
-	  	APP_ERROR("Failed to bind udp port\n");
-	}
-
-	struct ip_addr s_ip;
-	s_ip.u_addr.ip4.addr = inet_addr(TEST_SERVER);
-	s_ip.type = IPADDR_TYPE_V4;
-	if(ERR_OK != udp_connect(udp_sock, &s_ip, SERVER_PORT) ) {
-	  	APP_ERROR("Failed to connect udp server\n");
-	}
-
-	udp_recv(udp_sock, udp_data_input_cb, NULL);
-}
-
-uint8_t dhcped = 0;
-
-static void user_loop(void)
-{
-	//todo ...
-	//printf("%d\n", sys_now());
-	if(dhcp_supplied_address(&netif) == 1 && dhcped == 0) {
-		dhcped = 1;
-		APP_DEBUG("[dhcp] dhcp success!\n");
-		printf("ip: %s\n", ip4addr_ntoa(netif_ip4_addr(&netif)) );
-		printf("netmask: %s\n", ip4addr_ntoa(netif_ip4_netmask(&netif)) );
-		printf("gw: %s\n", ip4addr_ntoa(netif_ip4_gw(&netif)) );
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

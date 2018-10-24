@@ -7,10 +7,13 @@
 
 #define QUEUE_MAX_NUM   (2000)
 
+#define UART0_TX    PC_3
+#define UART0_RX    PC_0
+
 #define UART2_TX    PA_4
 #define UART2_RX    PA_0
-serial_t sobj;
-xQueueHandle charQueue;
+static serial_t sobj;
+static xQueueHandle charQueue;
 
 
 #if 0
@@ -77,10 +80,11 @@ void uart2_init(void)
 	{
 		// Queue was not created and must not be used.
 	  	printf("Queue was not created \n");
+		return;
 	}
   
     serial_init(&sobj, UART2_TX, UART2_RX);
-    serial_baud(&sobj, 500000);
+    serial_baud(&sobj, 115200);
     serial_format(&sobj, 8, ParityNone, 1);
 	
 	serial_irq_handler(&sobj, uart2_irq_handler, 0);

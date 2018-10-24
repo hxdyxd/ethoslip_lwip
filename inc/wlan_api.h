@@ -3,11 +3,19 @@
 
 #include <stdint.h>
 
-#define WLAN_API_TYPE_CONNECT       0x01
-#define WLAN_API_TYPE_CONNECT_RET   (WLAN_API_TYPE_CONNECT | 0x80)
+#define WLAN_API_TYPE_CONNECT          0x01
+#define WLAN_API_TYPE_CONNECT_RET     (WLAN_API_TYPE_CONNECT | 0x80)
+
+#define WLAN_API_TYPE_GET_HWADDR       0x02
+#define WLAN_API_TYPE_GET_HWADDR_RET  (WLAN_API_TYPE_GET_HWADDR | 0x80)
+
+
 
 #define WLAN_API_SSID_MAX_LEN        (33)
 #define WLAN_API_PASSWORD_MAX_LEN    (65)
+
+#define IS_WLAN_API_FRAME_LEN(len)   ((len) > 14)
+#define IS_WLAN_API_FRAME(p)         ((p)[12] == 0xff && (p)[13] == 0xff)
 
 #if defined(__IAR_SYSTEMS_ICC__)|| defined (__GNUC__)
 #pragma pack(1)

@@ -54,7 +54,8 @@ static u16_t sbuf_key_xor(struct pbuf *buf, const char *key)
 
 static struct udp_pcb *udp_sock = NULL;
 static unsigned char key[BUF_SIZE];
-extern int skbbuf_used_num, max_local_skb_num, max_skb_buf_num, skbdata_used_num;
+extern int skbbuf_used_num, max_local_skb_num;
+extern int max_skb_buf_num, skbdata_used_num;
 #include "lwip_intf.h"
 
 void tun_task_proc(void *par)
@@ -123,40 +124,10 @@ void udp_input_cb(void *arg, struct udp_pcb *upcb, struct pbuf *p, struct ip_add
 	}
 	sbuf_key_xor(p, key);
 	
-	//low_level_output(xnetif + 1, p);  //output ap netif
-	
-	int idx = netif_get_idx(xnetif + 1);
-	
-	save_and_cli();
-	if(rltk_wlan_check_isup(idx))
-		rltk_wlan_tx_inc(idx);
-	else {
-		PRINTF("netif is DOWN\n");
-		restore_flags();
-		return;
+	if(p->len >= 12) {
+	  	memcpy(((uint8_t *)p->payload)+6, xnetif[1].hwaddr, xnetif[1].hwaddr_len);
 	}
-	restore_flags();
-	
-	struct sk_buff *skb_buff = NULL;
-	skb_buff = rltk_wlan_alloc_skb( p->tot_len);
-	if (skb_buff == NULL) {
-		PRINTF("rltk_wlan_alloc_skb() for data len=%d failed!\n", p->tot_len);
-		goto exit;
-	}
-	struct pbuf *q;
-	//for (last_sg = &sg_list[sg_len]; sg_list < last_sg; ++sg_list) {
-	for (q = p; q != NULL; q = q->next) {
-		rtw_memcpy( skb_buff->tail, q->payload, q->len);
-		skb_put(skb_buff, q->len);
-	}
-	
-	rltk_wlan_send_skb(idx, skb_buff);
-	
-exit:
-	save_and_cli();
-	rltk_wlan_tx_dec(idx);
-	restore_flags();
-	
+	low_level_output(&xnetif[1], p);  //output ap netif
 	pbuf_free(p);
 }
 
