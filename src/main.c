@@ -58,6 +58,7 @@ void net_task_start(void)
 	);
 }
 
+unsigned int uart2_rate = 500000;
 /**
   * @brief  Main program.
   * @param  None
@@ -70,7 +71,8 @@ void main(void)
 	APP_DEBUG("Build , %s %s \r\n", __DATE__, __TIME__);
 	/* wlan intialization */
 //#if defined(CONFIG_WIFI_NORMAL) && defined(CONFIG_NETWORK)
-	uart2_init();
+	APP_DEBUG("UART2 RATE = %d \r\n", uart2_rate);
+	uart2_init(uart2_rate);
 	wlan_network();
 //#endif
 	net_task_start();
@@ -78,7 +80,7 @@ void main(void)
     /*Enable Schedule, Start Kernel*/
 #if defined(CONFIG_KERNEL) && !TASK_SCHEDULER_DISABLED
 	#ifdef PLATFORM_FREERTOS
-	APP_DEBUG("PLATFORM FREERTOS %d\n", SystemCoreClock);
+	APP_DEBUG("PLATFORM FREERTOS %d\r\n", SystemCoreClock);
 	vTaskStartScheduler();
 	#endif
 #else

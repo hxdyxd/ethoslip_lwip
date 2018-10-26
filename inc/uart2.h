@@ -4,7 +4,7 @@
 
 
 void uart2_write_string(char *pstr);
-void uart2_init(void);
+void uart2_init(unsigned int rate);
 void send_char(unsigned char ch);
 void send_char_do(void);
 unsigned char recv_char(void);

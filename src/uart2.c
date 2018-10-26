@@ -71,7 +71,7 @@ void  uart2_irq_handler(uint32_t id, SerialIrq event)
   	}
 }
 
-void uart2_init(void)
+void uart2_init(unsigned int rate)
 {
     // mbed uart test
   	/* 建立队列 */
@@ -84,7 +84,7 @@ void uart2_init(void)
 	}
   
     serial_init(&sobj, UART2_TX, UART2_RX);
-    serial_baud(&sobj, 115200);
+    serial_baud(&sobj, rate);
     serial_format(&sobj, 8, ParityNone, 1);
 	
 	serial_irq_handler(&sobj, uart2_irq_handler, 0);

@@ -128,6 +128,23 @@ void get_hwaddr_timeout_callback(void)
 	}
 }
 
+void ipv6_addr_callback(void)
+{
+	printf("ipv6:\n");
+	for(int j=0;j<3;j++) {
+		printf("ipv6 addr%d: ", j);
+		uint8_t *v6_addr = (uint8_t *)&(netif_ip6_addr(&netif, j)->addr[0]);
+		for(int i=0;i<16;i+=2) {
+			if(i!=0) {
+				printf(":");
+			}
+			printf("%02x%02x", v6_addr[i], v6_addr[i+1]);
+		}
+		printf("\n");
+	}
+}
+
+
 /*
  * mainÑ­­h
  */
@@ -147,6 +164,9 @@ void user_loop(void)
 		break;
 	case WIFI_GOT_HWADDR:
 		{
+			//create ipv6 linklocal addr
+			netif_create_ip6_linklocal_address(&netif, 1);
+			//connect to wifi
 			char *ssid_2 = "MTK";
 			char *passwd_2 = "12345678";
 			wlan_api_connect(ssid_2, passwd_2, strlen(ssid_2), strlen(passwd_2));
@@ -171,6 +191,7 @@ void user_loop(void)
 	case WIFI_DHCP_GOT_IP:
 		//todo ...
 		{
+			ipv6_addr_callback();
 			udp_test();
 			httpd_init();
 			wifi_status = WIFI_RUNING;
