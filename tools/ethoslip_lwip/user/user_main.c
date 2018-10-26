@@ -15,6 +15,8 @@
 #include "lwip/pbuf.h"
 #include "lwip/inet.h"
 #include "lwip/dhcp.h"
+#include "lwip/apps/httpd.h"
+
 #include "wlan_api.h"
 
 #define WIFI_NOT_HWADDR   0
@@ -27,7 +29,7 @@
 #define WIFI_FREE         255
 
 
-#define TEST_SERVER  "192.168.2.108"
+#define TEST_SERVER  "120.79.154.122"
 #define SERVER_PORT   8080
 
 //global netif
@@ -44,7 +46,7 @@ void udp_debug_callback(void)
 	char *str = "hello world!!!";
 
 	struct pbuf *p = NULL;
-	 p = pbuf_alloc(PBUF_TRANSPORT, strlen(str), PBUF_POOL);
+	 p = pbuf_alloc(PBUF_TRANSPORT, strlen(str), PBUF_RAM);
 	if (p == NULL) {
 		printf("Cannot allocate pbuf to receive packet\n");
 		return;
@@ -75,6 +77,31 @@ void udp_data_input_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p,
 	printf("total_len = %d\n", total_len);
 	pbuf_free(p);
 }
+
+void udp_test(void)
+{
+	udp_sock = udp_new();
+	if(udp_sock == NULL) {
+		APP_ERROR("Failed to new udp pcb\n");
+	}
+
+	if(ERR_OK != udp_bind(udp_sock, IP_ADDR_ANY, SERVER_PORT) ) {
+		APP_ERROR("Failed to bind udp port\n");
+	}
+
+	struct ip_addr s_ip;
+	s_ip.u_addr.ip4.addr = inet_addr(TEST_SERVER);
+	s_ip.type = IPADDR_TYPE_V4;
+	if(ERR_OK != udp_connect(udp_sock, &s_ip, SERVER_PORT) ) {
+		APP_ERROR("Failed to connect udp server\n");
+	}
+
+	udp_recv(udp_sock, udp_data_input_callback, NULL);
+
+	//udp sender timer
+	soft_timer_create(0, 1, 1, udp_debug_callback, 2000);
+}
+
 
 /*
  * 獲取硬件地址成功回調函數
@@ -120,8 +147,8 @@ void user_loop(void)
 		break;
 	case WIFI_GOT_HWADDR:
 		{
-			char *ssid_2 = "101";
-			char *passwd_2 = "198612888";
+			char *ssid_2 = "MTK";
+			char *passwd_2 = "12345678";
 			wlan_api_connect(ssid_2, passwd_2, strlen(ssid_2), strlen(passwd_2));
 			APP_DEBUG("wifi connected\n");
 			wifi_status = WIFI_CONNECTED;
@@ -144,25 +171,8 @@ void user_loop(void)
 	case WIFI_DHCP_GOT_IP:
 		//todo ...
 		{
-			udp_sock = udp_new();
-			if(udp_sock == NULL) {
-				APP_ERROR("Failed to new udp pcb\n");
-			}
-
-			if(ERR_OK != udp_bind(udp_sock, IP_ADDR_ANY, SERVER_PORT) ) {
-				APP_ERROR("Failed to bind udp port\n");
-			}
-
-			struct ip_addr s_ip;
-			s_ip.u_addr.ip4.addr = inet_addr(TEST_SERVER);
-			s_ip.type = IPADDR_TYPE_V4;
-			if(ERR_OK != udp_connect(udp_sock, &s_ip, SERVER_PORT) ) {
-				APP_ERROR("Failed to connect udp server\n");
-			}
-
-			udp_recv(udp_sock, udp_data_input_callback, NULL);
-
-			soft_timer_create(0, 1, 1, udp_debug_callback, 2000);
+			udp_test();
+			httpd_init();
 			wifi_status = WIFI_RUNING;
 		}
 		break;

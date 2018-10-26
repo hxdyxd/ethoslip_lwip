@@ -35,6 +35,13 @@ int wlan_api_pack_proc(unsigned char *buf, unsigned int len)
 				APP_ERROR("ssid or passwd length error\n");
 				return -1;
 			}
+			//SAME
+			if(memcmp(gs_ssid.val, api_con->ssid, gs_ssid.len) == 0 && 
+			   memcmp(gs_passwd, api_con->password, strlen(gs_passwd)) == 0) {
+				APP_DEBUG("ssid and passwd was configured\n");
+				return 0;
+			}
+			
 			memcpy(gs_ssid.val, api_con->ssid, api_con->ssid_len);
 			gs_ssid.val[api_con->ssid_len] = 0;
 			gs_ssid.len = api_con->ssid_len;

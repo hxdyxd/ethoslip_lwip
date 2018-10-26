@@ -10,6 +10,8 @@ CRU_PATH := .
 FILE_LIST = \
 $(CRU_PATH)/user/*.c \
 $(CRU_PATH)/src/*.c \
+$(CRU_PATH)/lwip-2.1.0/apps/http/httpd.c \
+$(CRU_PATH)/lwip-2.1.0/apps/http/fs.c \
 $(CRU_PATH)/lwip-2.1.0/netif/ethernet.c \
 $(CRU_PATH)/lwip-2.1.0/arch/*.c \
 $(CRU_PATH)/lwip-2.1.0/core/*.c \

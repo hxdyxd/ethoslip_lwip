@@ -24,6 +24,7 @@ int wlan_api_connect(void *ssid, void *passwd, uint8_t ssid_len, uint8_t passwd_
 		printf("mem alloc error\n");
 		return -1;
 	}
+	memset(api_con, 0, sizeof(struct wlan_api_wifi_connect_t) + 2);
 
 	const uint8_t ether_header[] = {
 			0xff, 0xff, 0xff, 0xff, 0xff, 0xff,

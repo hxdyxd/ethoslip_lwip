@@ -9,10 +9,13 @@
 
 #include "wlan_api.h"
 
-#define _USE_UDP_TUNNEL 1
-#define CHECK_SUM_ON    1
+#ifndef _USE_UDP_TUNNEL
+	#define _USE_UDP_TUNNEL 0
+#endif
 
-#define BUF_SIZE 2000
+
+#define CHECK_SUM_ON    1
+#define BUF_SIZE        2000
 
 static TaskHandle_t slip2ip_task_handle = NULL;
 static unsigned char slip_out_buffer[BUF_SIZE];

@@ -22,21 +22,16 @@ extern u8 airkiss_connection_done;
 uint8_t network_init_status(void);
 void wlan_connect_wifi(void);
 int airkiss_start(rtw_network_info_t *wifi);
-
+uint8_t scan_buf[2048];
 
 void network_connected_proc(void *par)
 {
   	while( !network_init_status() );
 	APP_DEBUG("wifi is connected to ap\n");
-	slip2ip_task_start();
-	
-	//char *ssid_2 = "GXNU.LOCK";
-	//char *passwd_2 = "12345678";
-	//wifi_start_ap(ssid_2, RTW_SECURITY_WPA_AES_PSK, passwd_2, strlen(ssid_2), strlen(passwd_2), 6);
 	
 	char *ssid_2 = "GXNU-OPEN";
 	wifi_start_ap(ssid_2, RTW_SECURITY_OPEN, NULL, strlen(ssid_2), 0, 6);
-	
+	slip2ip_task_start();
 	tun_task_start();  //tun service start
 	///**********************************************************
 	while(1) {
@@ -62,7 +57,7 @@ void net_task_start(void)
 				&net_task_handle
 	);
 }
- 
+
 /**
   * @brief  Main program.
   * @param  None
@@ -72,6 +67,7 @@ void main(void)
 {
     /* Initialize log uart and at command service */
   	debugSemaphore = xSemaphoreCreateMutex();
+	APP_DEBUG("Build , %s %s \r\n", __DATE__, __TIME__);
 	/* wlan intialization */
 //#if defined(CONFIG_WIFI_NORMAL) && defined(CONFIG_NETWORK)
 	uart2_init();
@@ -82,7 +78,7 @@ void main(void)
     /*Enable Schedule, Start Kernel*/
 #if defined(CONFIG_KERNEL) && !TASK_SCHEDULER_DISABLED
 	#ifdef PLATFORM_FREERTOS
-	APP_WARN("PLATFORM FREERTOS %d\n", SystemCoreClock);
+	APP_DEBUG("PLATFORM FREERTOS %d\n", SystemCoreClock);
 	vTaskStartScheduler();
 	#endif
 #else

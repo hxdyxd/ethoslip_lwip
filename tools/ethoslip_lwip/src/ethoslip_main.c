@@ -119,10 +119,12 @@ void *slip_out_task_proc(void *par)
 #ifdef DEBUG
 		PRINTF("SLIP R=%d\n", total_len);
 
-/*		for(int i=0;i<total_len;i++) {
-			printf("%02x ", slip_out_buffer[i]);
-		}
-		printf("\n");*/
+		/*
+		 * for(int i=0;i<total_len;i++) {
+		 * 		printf("%02x ", slip_out_buffer[i]);
+		 * }
+		 * printf("\n");
+		 */
 #endif
 
 		struct pbuf* p = pbuf_alloc(PBUF_RAW, total_len, PBUF_POOL);

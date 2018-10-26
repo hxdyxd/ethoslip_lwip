@@ -91,4 +91,8 @@
 /* Check lwip_stats.mem.illegal instead of asserting */
 #define LWIP_MEM_ILLEGAL_FREE(msg)      /* to nothing */
 
+//#define  LWIP_HTTPD_DYNAMIC_HEADERS 1
+//#define  LWIP_HTTPD_SSI 1
+//#define  LWIP_HTTPD_CGI 1
+
 #endif /* LWIP_HDR_LWIPOPTS_H */
